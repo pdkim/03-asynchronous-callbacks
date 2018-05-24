@@ -32,7 +32,7 @@ describe('Reader module', () => {
   });
 
   //fourth
-  it('should return file contents for multiple files', (done) => {
+  xit('should return file contents for multiple files', (done) => {
     let files = [];
     for(let items of ['corn', 'almonds', 'berries']) {
       files.push(__dirname + '/../data/' + items + '.txt');
@@ -43,16 +43,17 @@ describe('Reader module', () => {
     reader(files, (err, contents) => {
       expected = true;
       actual = contents.toString().startsWith('corn');
+      console.log(actual);
       expect(actual).toBe(expected);
 
       expect(err).toBeUndefined();
       expected = 'i am a nut';
-      actual = files[1].contents;
+      actual = this.contents.toString();
       expect(actual).toBe(expected);
 
-      // expected = 'i am a berry';
-      // actual = contents[2].toString();
-      // expect(actual).toBe(expected);
+      expected = 'i am a berry';
+      actual = contents[2].toString();
+      expect(actual).toBe(expected);
 
       done();
     });
