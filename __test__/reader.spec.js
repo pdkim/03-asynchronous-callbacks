@@ -5,7 +5,7 @@ const reader = require('../lib/reader.js');
 describe('Reader module', () => {
 
   //first
-  xit('should prompt an error when invalid path is used', (done) => {
+  it('should prompt an error when invalid path is used', (done) => {
     reader([`${__dirname}missing.txt`], (err) => {
       expect(err).not.toBeUndefined();
       done();
@@ -13,7 +13,7 @@ describe('Reader module', () => {
   });
 
   //second
-  xit('should prompt error of even one file is invalid path', (done) => {
+  it('should prompt error of even one file is invalid path', (done) => {
     reader([__dirname + '/../data/almonds.txt', 'missing.txt'], (err) => {
       expect(err).not.toBeUndefined();
       done();
@@ -32,7 +32,7 @@ describe('Reader module', () => {
   });
 
   //fourth
-  xit('should return file contents for multiple files', (done) => {
+  it('should return file contents for multiple files', (done) => {
     let files = [];
     for (let items of ['corn', 'almonds', 'berries']) {
       files.push(__dirname + '/../data/' + items + '.txt');
@@ -43,15 +43,18 @@ describe('Reader module', () => {
     reader(files, (err, contents) => {
       expected = true;
       actual = contents[0].startsWith('corn');
+      console.log(actual);
       expect(actual).toBe(expected);
 
       expect(err).toBeUndefined();
       expected = 'i am a nut';
       actual = contents[1];
+      console.log(actual);
       expect(actual).toBe(expected);
 
       expected = 'i am a berry';
       actual = contents[2];
+      console.log(actual);
       expect(actual).toBe(expected);
     });
 
