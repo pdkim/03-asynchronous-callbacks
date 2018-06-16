@@ -1,3 +1,5 @@
+Travis: 
+
 ## Lab 03 Asynchronous Callbacks
 Description: Export an asynchronous function that takes in an array of filepaths that will callback an error if anything is wrong or returns data.  It must return the data as a string in the order the data was originally mapped.  If an error occurs, it should stop the operation immediately and return an error.  If no errors, error should be undefined.
 
